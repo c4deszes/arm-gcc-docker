@@ -1,5 +1,9 @@
 name: Build
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - 'Dockerfile'
+      - '.dockerignore'
 
 jobs:
   build:
@@ -9,5 +13,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Build
+      - name: Build image
         run: docker build . -t local

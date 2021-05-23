@@ -1,4 +1,6 @@
 FROM ubuntu
+
+LABEL version="1.0.0"
 LABEL description="Image for building ARM embedded projects"
 
 # Install common tools
