@@ -26,10 +26,11 @@ ENV PATH "$PATH:/opt/cmake/bin"
 # ARM GCC configuration
 ARG arm_archive="13.2.rel1"
 ARG arm_version="13.2.rel1"
+ARG arm_folder="13.2.Rel1"
 ARG arm_platform="x86_64-aarch64-none-linux-gnu"
 
 # Install ARM GCC
 RUN mkdir /opt/armgcc
 RUN wget https://developer.arm.com/-/media/Files/downloads/gnu/${arm_archive}/binrel/arm-gnu-toolchain-${arm_version}-${arm_platform}.tar.xz
-RUN tar -xf gcc-arm-none-eabi-${arm_version}-${arm_platform}.tar.bz2 --directory /opt/armgcc
-ENV PATH "$PATH:/opt/armgcc/gcc-arm-none-eabi-${arm_version}/bin"
+RUN tar -xf arm-gnu-toolchain-${arm_version}-${arm_platform}.tar.xz --directory /opt/armgcc
+ENV PATH "$PATH:/opt/armgcc/arm-gnu-toolchain-${arm_folder}-${arm_platform}/bin"
