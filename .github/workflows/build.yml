@@ -17,7 +17,7 @@ jobs:
         run: docker build . -t local
 
       - name: Test Python version
-        run: docker run local /bin/sh -- python --version
+        run: docker run local /bin/sh -- python3 --version
 
       - name: Test CMake version
         run: docker run local /bin/sh -- cmake --version
