@@ -7,7 +7,7 @@
 ## Tools
 
 + CMake 3.28.1
-+ Python 3.12
++ Python 3.11.4
 + GCC 9.0
 + ARM GCC 13.2-rel1
 
