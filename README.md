@@ -6,10 +6,10 @@
 
 ## Tools
 
-+ CMake 3.20.2
-+ Python 3.9
++ CMake 3.28.1
++ Python 3.12
 + GCC 9.0
-+ ARM GCC 10.0 (2020 Q4)
++ ARM GCC 13.2-rel1
 
 ---
 
