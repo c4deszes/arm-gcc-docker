@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:23.04
 
 LABEL version="1.1.0"
 LABEL description="Image for building ARM embedded projects"
@@ -21,7 +21,7 @@ RUN sh cmake-${cmake_version}-${cmake_platform}.sh --prefix=/opt/cmake --skip-li
 ENV PATH "$PATH:/opt/cmake/bin"
 
 # Install Python
-RUN apt-get install -y python3.12
+# RUN apt-get install -y python3.11
 
 # ARM GCC configuration
 ARG arm_archive="13.2.rel1"
