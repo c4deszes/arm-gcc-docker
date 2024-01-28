@@ -21,14 +21,15 @@ RUN sh cmake-${cmake_version}-${cmake_platform}.sh --prefix=/opt/cmake --skip-li
 ENV PATH "$PATH:/opt/cmake/bin"
 
 # Install Python
-# RUN apt-get install -y python3.11
-RUN alias python='python3'
+RUN apt-get install -y python3.11
+RUN alias python='python3.11'
+RUN alias python3='python3.11'
 
 # ARM GCC configuration
 ARG arm_archive="13.2.rel1"
 ARG arm_version="13.2.rel1"
 ARG arm_folder="13.2.Rel1"
-ARG arm_platform="x86_64-aarch64-none-linux-gnu"
+ARG arm_platform="x86_64-arm-none-eabi"
 
 # Install ARM GCC
 RUN mkdir /opt/armgcc

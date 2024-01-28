@@ -15,12 +15,3 @@ jobs:
 
       - name: Build image
         run: docker build . -t local
-
-      # - name: Test Python version
-      #   run: docker run local /bin/sh -- python3 --version
-
-      - name: Test CMake version
-        run: docker run local /bin/sh -- cmake --version
-
-      - name: Test ARM compiler version
-        run: docker run local /bin/sh -- arm-none-eabi-gcc --version
