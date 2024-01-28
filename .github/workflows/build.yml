@@ -11,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build image
         run: docker build . -t local
 
       - name: Test Python version
-        run: docker run local python --version
+        run: docker run local /bin/sh -- python --version
 
       - name: Test CMake version
-        run: docker run local cmake --version
+        run: docker run local /bin/sh -- cmake --version
 
       - name: Test ARM compiler version
-        run: docker run local arm-none-eabi-gcc --version
+        run: docker run local /bin/sh -- arm-none-eabi-gcc --version
