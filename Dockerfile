@@ -22,6 +22,7 @@ ENV PATH "$PATH:/opt/cmake/bin"
 
 # Install Python
 # RUN apt-get install -y python3.11
+RUN alias python='python3'
 
 # ARM GCC configuration
 ARG arm_archive="13.2.rel1"
