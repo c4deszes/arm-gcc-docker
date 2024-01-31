@@ -17,7 +17,7 @@ RUN apt-get install -y \
 ARG srecord_version="1.65"
 
 WORKDIR /
-RUN wget https://sourceforge.net/projects/srecord/files/srecord/${srecord_version}/srecord-${srecord_version}.tar.gz
+RUN wget https://downloads.sourceforge.net/project/srecord/srecord/${srecord_version}/srecord-${srecord_version}.0-Source.tar.gz
 RUN tar -xf srecord-${srecord_version}.tar.gz --directory /opt/srecord
 WORKDIR /opt/srecord/srecord-${srecord_version}
 RUN ./configure --without-gcrypt && make all-bin && make install-bin install-libdir install-include
