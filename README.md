@@ -10,6 +10,7 @@
 + Python 3.11.4
 + GCC 9.0
 + ARM GCC 13.2-rel1
++ SRecord 1.65
 
 ---
 
