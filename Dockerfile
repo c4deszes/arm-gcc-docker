@@ -19,7 +19,7 @@ ARG srecord_version="1.65"
 WORKDIR /
 RUN mkdir /opt/srecord
 RUN wget https://downloads.sourceforge.net/project/srecord/srecord/${srecord_version}/srecord-${srecord_version}.0-Linux.deb
-RUN apt install ./srecord-${srecord_version}.0-Linux.deb
+RUN apt install -y ./srecord-${srecord_version}.0-Linux.deb
 
 # Install CMake
 ARG cmake_version="3.28.1"
