@@ -10,7 +10,7 @@ RUN apt-get install -y \
       git \
       curl \
       wget \
-      boost-dev \
+      libboost-all-dev \
       libtool
 
 # Install SRecord
