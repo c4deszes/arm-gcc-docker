@@ -17,7 +17,6 @@ RUN apt-get install -y \
 ARG srecord_version="1.65"
 
 WORKDIR /
-RUN mkdir /opt/srecord
 RUN wget https://downloads.sourceforge.net/project/srecord/srecord/${srecord_version}/srecord-${srecord_version}.0-Linux.deb
 RUN apt install -y ./srecord-${srecord_version}.0-Linux.deb
 
