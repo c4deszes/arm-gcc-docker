@@ -1,6 +1,6 @@
-FROM ubuntu:23.04
+FROM ubuntu:22.04
 
-LABEL version="1.1.0"
+LABEL version="1.3.0"
 LABEL description="Image for building ARM embedded projects"
 
 # Install common tools
@@ -11,7 +11,18 @@ RUN apt-get install -y \
       curl \
       wget \
       libboost-all-dev \
-      libtool
+      libtool \
+      software-properties-common
+
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get update && \
+    apt-get install -y python3.10 python3.10-distutils && \
+    apt-get install -y python3.10-venv python3.10-dev && \
+    apt-get install -y python3-pip
+
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1 && \
+    update-alternatives --set python3 /usr/bin/python3.10 && \
+    ln -s /usr/bin/python3.10 /usr/bin/python
 
 # Install SRecord
 ARG srecord_version="1.65"
@@ -29,12 +40,6 @@ RUN mkdir /opt/cmake
 RUN wget https://github.com/Kitware/CMake/releases/download/v${cmake_version}/cmake-${cmake_version}-${cmake_platform}.sh
 RUN sh cmake-${cmake_version}-${cmake_platform}.sh --prefix=/opt/cmake --skip-license
 ENV PATH "$PATH:/opt/cmake/bin"
-
-# Install Python
-WORKDIR /
-RUN apt-get install -y python3.11
-RUN echo 'alias python="python3.11"' >> ~/.bashrc
-RUN echo 'alias python3="python3.11"' >> ~/.bashrc
 
 # Install ARM GCC
 ARG arm_archive="13.2.rel1"
