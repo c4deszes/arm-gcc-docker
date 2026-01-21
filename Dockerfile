@@ -16,7 +16,7 @@ RUN apt-get install -y \
 
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get update && \
-    apt-get install -y python3.14 python3.14-distutils && \
+    apt-get install -y python3.14 && \
     apt-get install -y python3.14-venv python3.14-dev && \
     apt-get install -y python3-pip
 
@@ -39,16 +39,14 @@ WORKDIR /
 RUN mkdir /opt/cmake
 RUN wget https://github.com/Kitware/CMake/releases/download/v${cmake_version}/cmake-${cmake_version}-${cmake_platform}.sh
 RUN sh cmake-${cmake_version}-${cmake_platform}.sh --prefix=/opt/cmake --skip-license
-ENV PATH "$PATH:/opt/cmake/bin"
+ENV PATH="$PATH:/opt/cmake/bin"
 
 # Install ARM GCC
-ARG arm_archive="14.2.rel1"
 ARG arm_version="14.2.rel1"
-ARG arm_folder="14.2.Rel1"
 ARG arm_platform="x86_64-arm-none-eabi"
 
 WORKDIR /
 RUN mkdir /opt/armgcc
-RUN wget https://developer.arm.com/-/media/Files/downloads/gnu/${arm_archive}/binrel/arm-gnu-toolchain-${arm_version}-${arm_platform}.tar.xz
+RUN wget https://developer.arm.com/-/media/Files/downloads/gnu/${arm_version}/binrel/arm-gnu-toolchain-${arm_version}-${arm_platform}.tar.xz
 RUN tar -xf arm-gnu-toolchain-${arm_version}-${arm_platform}.tar.xz --directory /opt/armgcc
-ENV PATH "$PATH:/opt/armgcc/arm-gnu-toolchain-${arm_folder}-${arm_platform}/bin"
+ENV PATH="$PATH:/opt/armgcc/arm-gnu-toolchain-${arm_version}-${arm_platform}/bin"
